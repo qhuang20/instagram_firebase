@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-extension LoginController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+extension SignupController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @objc func handleTextInputChange() {
         let isFormValid = emailTextField.text?.count ?? 0 > 0 && usernameTextField.text?.count ?? 0 > 0 && passwordTextField.text?.count ?? 0 > 0
@@ -30,8 +30,8 @@ extension LoginController: UINavigationControllerDelegate, UIImagePickerControll
         guard let username = usernameTextField.text, username.count > 0 else { return }
         guard let password = passwordTextField.text, password.count > 0 else { return }
         guard let image = self.plusPhotoButton.imageView?.image else { return }
-        
-        Auth.auth().createUser(withEmail: email, password: password, completion: { (user: User?, error: Error?) in
+  
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
            
             if let err = error as NSError? {
                 if err.code == AuthErrorCode.emailAlreadyInUse.rawValue {

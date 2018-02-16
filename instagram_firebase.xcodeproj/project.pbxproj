@@ -10,8 +10,9 @@
 		7B16244F20358FF5004C0537 /* Signup+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B16244E20358FF5004C0537 /* Signup+Handlers.swift */; };
 		7B16245520362BDE004C0537 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B16245420362BDE004C0537 /* MainTabBarController.swift */; };
 		7B16245720362C4E004C0537 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B16245620362C4E004C0537 /* UserProfileController.swift */; };
+		7B1624592036D39A004C0537 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1624582036D39A004C0537 /* UserProfileHeader.swift */; };
 		7B906FF92032F26800C1D477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B906FF82032F26800C1D477 /* AppDelegate.swift */; };
-		7B906FFB2032F26800C1D477 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B906FFA2032F26800C1D477 /* LoginController.swift */; };
+		7B906FFB2032F26800C1D477 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B906FFA2032F26800C1D477 /* SignupController.swift */; };
 		7B906FFE2032F26800C1D477 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B906FFC2032F26800C1D477 /* Main.storyboard */; };
 		7B9070002032F26800C1D477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B906FFF2032F26800C1D477 /* Assets.xcassets */; };
 		7B9070032032F26800C1D477 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B9070012032F26800C1D477 /* LaunchScreen.storyboard */; };
@@ -26,9 +27,10 @@
 		7B16244E20358FF5004C0537 /* Signup+Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Signup+Handlers.swift"; sourceTree = "<group>"; };
 		7B16245420362BDE004C0537 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		7B16245620362C4E004C0537 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		7B1624582036D39A004C0537 /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		7B906FF52032F26800C1D477 /* instagram_firebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram_firebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B906FF82032F26800C1D477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7B906FFA2032F26800C1D477 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		7B906FFA2032F26800C1D477 /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		7B906FFD2032F26800C1D477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B906FFF2032F26800C1D477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B9070022032F26800C1D477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -69,13 +71,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		7B162453203625AA004C0537 /* LoginController */ = {
+		7B162453203625AA004C0537 /* login_signup */ = {
 			isa = PBXGroup;
 			children = (
-				7B906FFA2032F26800C1D477 /* LoginController.swift */,
+				7B906FFA2032F26800C1D477 /* SignupController.swift */,
 				7B16244E20358FF5004C0537 /* Signup+Handlers.swift */,
 			);
-			name = LoginController;
+			name = login_signup;
 			sourceTree = "<group>";
 		};
 		7B906FEC2032F26800C1D477 = {
@@ -99,8 +101,9 @@
 		7B906FF72032F26800C1D477 /* instagram_firebase */ = {
 			isa = PBXGroup;
 			children = (
+				7B1624582036D39A004C0537 /* UserProfileHeader.swift */,
 				7B16245620362C4E004C0537 /* UserProfileController.swift */,
-				7B162453203625AA004C0537 /* LoginController */,
+				7B162453203625AA004C0537 /* login_signup */,
 				7B16245420362BDE004C0537 /* MainTabBarController.swift */,
 				7B906FF82032F26800C1D477 /* AppDelegate.swift */,
 				7B90700E2034234200C1D477 /* helpers */,
@@ -258,9 +261,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B906FFB2032F26800C1D477 /* LoginController.swift in Sources */,
+				7B906FFB2032F26800C1D477 /* SignupController.swift in Sources */,
 				7B16244F20358FF5004C0537 /* Signup+Handlers.swift in Sources */,
 				7B16245520362BDE004C0537 /* MainTabBarController.swift in Sources */,
+				7B1624592036D39A004C0537 /* UserProfileHeader.swift in Sources */,
 				7B90700B2034229100C1D477 /* UIView+Anchors.swift in Sources */,
 				7B16245720362C4E004C0537 /* UserProfileController.swift in Sources */,
 				7B906FF92032F26800C1D477 /* AppDelegate.swift in Sources */,
