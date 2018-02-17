@@ -33,7 +33,7 @@ extension SignupController: UINavigationControllerDelegate, UIImagePickerControl
   
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
            
-            if let err = error as NSError? {
+            if let err = error as NSError? {///
                 if err.code == AuthErrorCode.emailAlreadyInUse.rawValue {
                     print("The email address is already in use by another account")
                 } else { print("Inaccurate email formatting") }
@@ -75,6 +75,11 @@ extension SignupController: UINavigationControllerDelegate, UIImagePickerControl
                 return
             }
             print("Successfully saved user info to db")
+            
+            guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+            mainTabBarController.setupViewControllers()
+            
+            self.dismiss(animated: true, completion: nil)
         })
     }
     
@@ -104,6 +109,12 @@ extension SignupController: UINavigationControllerDelegate, UIImagePickerControl
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    @objc func handleAlreadyHaveAccount() {
+        _ = navigationController?.popViewController(animated: true)
     }
     
 }

@@ -22,32 +22,31 @@ struct User {
 class UserProfileController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var user: User?
+    
+    let cellId = "cellId"
+    
+    private func configureCollectionVeiw() {
+        collectionView?.backgroundColor = .white
+        let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 1
+        
+        collectionView?.register(UserProfileHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerId")
+        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.backgroundColor = .white
+        configureCollectionVeiw()
         navigationItem.title = Auth.auth().currentUser?.uid
-        
+
         fetchUser()
         
-        collectionView?.register(UserProfileHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerId")
+        setupLogOutButton()
     }
     
-    private func fetchUser() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-
-        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            guard let dictionary = snapshot.value as? [String: Any] else { return }
-            
-            self.user = User(dictionary: dictionary)
-            self.navigationItem.title = self.user?.username
-            
-            self.collectionView?.reloadData()
-            
-        }) { (err) in
-            print("Failed to fetch user:", err)
-        }
+    private func setupLogOutButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "gear").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleLogOut))
     }
     
     
@@ -62,6 +61,25 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 200)
+    }
+    
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        
+        cell.backgroundColor = .purple
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (view.frame.width - 2) / 3
+        return CGSize(width: width, height: width)
     }
     
 }
