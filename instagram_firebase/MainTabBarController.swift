@@ -11,9 +11,9 @@ import Firebase
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
-    let navPhotoSelectorController = UINavigationController(rootViewController: PhotoSelectorController(collectionViewLayout: UICollectionViewFlowLayout()))
-    
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        let navPhotoSelectorController = UINavigationController(rootViewController: PhotoSelectorController(collectionViewLayout: UICollectionViewFlowLayout()))
         
         let index = viewControllers?.index(of: viewController)
         if index == 2 {

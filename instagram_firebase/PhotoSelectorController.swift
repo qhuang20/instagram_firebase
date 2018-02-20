@@ -17,6 +17,7 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
     var images = [UIImage]()
     var selectedImage: UIImage?
     var assets = [PHAsset]()
+    var header: PhotoSelectorHeader?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +28,6 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
 
         setupNavigationButtons()
         
-        fetchPhotos()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
-        images.removeAll()
         fetchPhotos()
     }
     
@@ -77,6 +71,8 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! PhotoSelectorHeader
         
+        self.header = header
+
         header.photoImageView.image = selectedImage
         
         if let selectedImage = selectedImage {
@@ -106,20 +102,12 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if images.count == 0 {
-            return 1
-        }
-        
         return images.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PhotoSelectorCell
-        
-        if images.count == 0 {
-            return collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        }
-        
+
         cell.photoImageView.image = images[indexPath.item]
         
         return cell

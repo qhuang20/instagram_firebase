@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B0FD6E8203B774400E77422 /* SharePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0FD6E7203B774400E77422 /* SharePhotoController.swift */; };
 		7B16244F20358FF5004C0537 /* Signup+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B16244E20358FF5004C0537 /* Signup+Handlers.swift */; };
 		7B16245520362BDE004C0537 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B16245420362BDE004C0537 /* MainTabBarController.swift */; };
 		7B16245720362C4E004C0537 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B16245620362C4E004C0537 /* UserProfileController.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		218FEC3C8C3B4E19AFC14DF3 /* Pods-instagram_firebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram_firebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instagram_firebase/Pods-instagram_firebase.debug.xcconfig"; sourceTree = "<group>"; };
+		7B0FD6E7203B774400E77422 /* SharePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePhotoController.swift; sourceTree = "<group>"; };
 		7B16244E20358FF5004C0537 /* Signup+Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Signup+Handlers.swift"; sourceTree = "<group>"; };
 		7B16245420362BDE004C0537 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		7B16245620362C4E004C0537 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		7B16247B203A73C8004C0537 /* AddPhoto */ = {
 			isa = PBXGroup;
 			children = (
+				7B0FD6E7203B774400E77422 /* SharePhotoController.swift */,
 				7B162480203A8C4F004C0537 /* PhotoSelectorHeader.swift */,
 				7B16247C203A7947004C0537 /* PhotoSelectorCell.swift */,
 				7B162479203A73BE004C0537 /* PhotoSelectorController.swift */,
@@ -304,6 +307,7 @@
 				7B162481203A8C4F004C0537 /* PhotoSelectorHeader.swift in Sources */,
 				7B16246120382109004C0537 /* Login+Handlers.swift in Sources */,
 				7B16247A203A73BE004C0537 /* PhotoSelectorController.swift in Sources */,
+				7B0FD6E8203B774400E77422 /* SharePhotoController.swift in Sources */,
 				7B16244F20358FF5004C0537 /* Signup+Handlers.swift in Sources */,
 				7B16245520362BDE004C0537 /* MainTabBarController.swift in Sources */,
 				7B1624592036D39A004C0537 /* UserProfileHeader.swift in Sources */,

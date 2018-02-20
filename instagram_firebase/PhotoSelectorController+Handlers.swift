@@ -21,6 +21,7 @@ extension PhotoSelectorController {
         let allPhotos = PHAsset.fetchAssets(with: .image, options: fetchOptions)
         
         DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
+
             allPhotos.enumerateObjects({ (asset, count, stop) in
                 
                 let imageManager = PHImageManager.default()
@@ -53,7 +54,9 @@ extension PhotoSelectorController {
     
     
     @objc func handleNext() {
-        print("Handling next")
+        let sharePhotoController = SharePhotoController()
+        sharePhotoController.selectedImage = header?.photoImageView.image
+        navigationController?.pushViewController(sharePhotoController, animated: true)
     }
     
     @objc func handleCancel() {
