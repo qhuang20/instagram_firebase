@@ -11,6 +11,24 @@ import Firebase
 
 extension UserProfileController {
     
+    internal func fetchOrderedPosts() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child("posts").child(uid)
+        
+        //perhaps later on we'll implement some pagination of data
+        ref.queryOrdered(byChild: "creationDate").observe(.childAdded, with: { (snapshot) in
+            guard let dictionary = snapshot.value as? [String: Any] else { return }
+            
+            let post = Post(dictionary: dictionary)
+            self.posts.append(post)
+            
+            self.collectionView?.reloadData()
+            
+        }) { (err) in
+            print("Failed to fetch ordered posts:", err)
+        }
+    }
+    
     internal func fetchUser() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
@@ -20,13 +38,15 @@ extension UserProfileController {
             
             self.user = User(dictionary: dictionary)
             self.navigationItem.title = self.user?.username
-            
+
             self.collectionView?.reloadData()
             
         }) { (err) in
             print("Failed to fetch user:", err)
         }
     }
+    
+    
     
     @objc func handleLogOut() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
